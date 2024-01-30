@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
-    def index 
+    def index
+        @user_email = current_user.email if user_signed_in?
     end
 end
