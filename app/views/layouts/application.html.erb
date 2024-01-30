@@ -3,6 +3,7 @@
   <head>
     <title>TopMembersOnly</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../../assets/stylesheets/application_layout.css">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,18 +13,29 @@
   </head>
 
   <body>
+    <h1 class="title">TOP - Members Only!</h1>
     <!-- Navigation bar or other common elements go here -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in?%>
-          <li class="nav-item">
+          <li class="nav-item right">
+            <%= button_to 'Edit Profile', 
+              edit_user_registration_path%>
+          </li>
+
+          <li class="nav-item right">
             <%= button_to 'Sign Out', 
               destroy_user_session_path, 
               method: :delete %>
           </li>
         <% else%>
-          <li class="nav-item">
+          <li class="nav-item right">
             <%= link_to 'Sign In', 
+              new_user_session_path%>        
+          </li>
+
+          <li class="nav-item right">
+            <%= link_to 'Sign Up', 
               new_user_session_path%>        
           </li>
         <%end%>
@@ -36,8 +48,8 @@
       </div>
     <% end %>
     <!-- Common elements go here -->
-    <h1>heya, this is the main structure of this page</h1>
-   
+  
+   <!-- Dynamic elements go here -->
     <%= yield %>
 
   </body>
