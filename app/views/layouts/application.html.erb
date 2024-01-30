@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <!-- Navigation bar or other common elements go here -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in?%>
@@ -28,8 +29,16 @@
         <%end%>
       </ul>
     </div>
+
+    <% flash.each do |key, message| %>
+      <div class="alert <%= key %>">
+        <%= message %>
+      </div>
+    <% end %>
+    <!-- Common elements go here -->
     <h1>heya, this is the main structure of this page</h1>
    
     <%= yield %>
+
   </body>
 </html>
