@@ -3,7 +3,6 @@
   <head>
     <title>TopMembersOnly</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="../../assets/stylesheets/application_layout.css">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,7 +18,7 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in?%>
           <li class="nav-item right">
-            <%= button_to 'Edit Profile', 
+            <%= link_to 'Edit Profile', 
               edit_user_registration_path%>
           </li>
 
