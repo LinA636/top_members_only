@@ -3,7 +3,9 @@
 <p><strong>Content:</strong></p>
 <%= @post.content %>
 
-<p><strong>Created by:</strong> <%= @post.user.name %></p>
+<% if user_signed_in?%>
+    <p><strong>Created by:</strong> <%= @post.user.name %></p>
+<%end%>
 
 <p><strong>Created at:</strong> <%= @post.created_at %></p>
 
